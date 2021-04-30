@@ -179,14 +179,14 @@ public class Game {
   }
 
   public void playerWins() {
-    player.deposits(player.getBet() * 2);
+    player.handleBetOutcome(2);
   }
 
   public void playerLoses() {
-    player.deposits(player.getBet() * 0);
+    player.handleBetOutcome(0);
   }
 
   public void playerTies() {
-    player.deposits(player.getBet() * 1);
+    player.handleBetOutcome(1);
   }
 }

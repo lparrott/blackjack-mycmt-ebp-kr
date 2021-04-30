@@ -23,8 +23,6 @@ public class PlayerTest {
         player.deposits(12);
         player.bets(7);
 
-        assertThat(player.getBet())
-                .isEqualTo(7);
         assertThat(player.getBalance())
                 .isEqualTo(12 - 7);
     }
@@ -39,6 +37,17 @@ public class PlayerTest {
 
         assertThat(player.totalAmountBet())
                 .isEqualTo(7 + 16);
+    }
+
+    @Test
+    public void playerDeposits151Bets100ThenHas61() throws Exception {
+        Player player = new Player();
+
+        player.deposits(151);
+        player.bets(100);
+
+        assertThat(player.getBalance())
+                .isEqualTo(151 - 100 + 10);
     }
 
 

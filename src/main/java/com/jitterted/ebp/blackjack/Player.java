@@ -10,6 +10,9 @@ public class Player {
         bet = betAmount;
         balance -= betAmount;
         totalBets += betAmount;
+        if(bet >= 100){
+            balance += 10;
+        }
     }
 
     public void deposits(int amount) {
@@ -20,16 +23,16 @@ public class Player {
         hand.add(card);
     }
 
+    public void handleBetOutcome(int modifier){
+        balance += bet * modifier;
+    }
+
     public Hand getHand() {
         return hand;
     }
 
     public int getBalance() {
         return balance;
-    }
-
-    public int getBet() {
-        return bet;
     }
 
     public int totalAmountBet(){

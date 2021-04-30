@@ -60,6 +60,22 @@ public class GameBettingOutcomeTest {
         .isEqualTo(18);
   }
 
+  @Test
+  public void playerWith35Bets30WhenLosesBets20TotalBetIs50() throws Exception {
+    Game game = createGameWithPlayerBalanceOf(35);
+
+    game.player.bets(30);
+    game.playerLoses();
+
+    assertThat(game.player.getBalance())
+            .isEqualTo(5);
+
+    game.player.bets(20);
+
+    assertThat(game.player.totalAmountBet())
+            .isEqualTo(30 + 20);
+  }
+
 
   private Game createGameWithPlayerBalanceOf(int amount) {
     Game game = new Game();
